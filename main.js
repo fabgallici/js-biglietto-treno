@@ -8,7 +8,7 @@ var userNumKm = parseInt(prompt("Quanti km è lungo il viaggio?"));
 var userAge = parseInt(prompt("Quanti anni hai?"));
 
 var baseRoutePrice = userNumKm * ticketPrice;
-console.log(baseRoutePrice);
+// console.log(baseRoutePrice);
 
 // stabilire sconto in base all età,
 // minorenni 20% , over 65 anni 40%
@@ -19,5 +19,8 @@ if (userAge < 18 ) {
 } else  {
   finalRoutePrice = baseRoutePrice;
 }
+// console.log(finalRoutePrice);
 
-console.log(finalRoutePrice);
+//visualizzazione prezzo finale sulla pagina
+document.getElementById('price-title').innerHTML = "Il prezzo del biglietto è di:";
+document.getElementById('route-price').innerHTML = finalRoutePrice + "€";
