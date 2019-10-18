@@ -17,18 +17,31 @@ var finalRoutePrice, baseRoutePrice, discountVal, youngUser, seniorUser;
 
 
 //Richieste numero chilometri ed età utente, accetta anche num km con la virgola
+// var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
 var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
+
 var userAge = parseInt(prompt("Quanti anni hai?"));
 
 //Check User Data
-if (typeof userNumKm == 'number') {
-  console.log("correct data");
-} else {
+// if (isNaN(userNumKm)) {
+//    console.log("errore");
+// } else {
+//   console.log("correct data");
+// }
+if (userNumKm === Number.NaN) {
   console.log("errore");
+} else {
+  console.log("correct data");
 }
-// if (userNumKm === Number.Nan) {
-//   alert('invalid data');
+// if (typeof userNumKm == 'number') {
+//   console.log("correct data");
+// } else {
 //   console.log("errore");
+// }
+// if (userNumKm === ) {
+//   console.log("errore");
+// } else {
+//   console.log('funziona');
 // }
 
 //arrotondamento tragitto per difetto primo decimale
