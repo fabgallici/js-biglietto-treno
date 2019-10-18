@@ -13,8 +13,8 @@
 var ticketPrice = 0.21;
 var youngDiscount = 20;
 var seniorDiscount = 40;
-var finalRoutePrice;
-var youngUser, seniorUser;
+var finalRoutePrice, baseRoutePrice, discountVal, youngUser, seniorUser;
+
 
 //Richieste numero chilometri ed età utente, accetta anche num km con la virgola
 var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
@@ -23,7 +23,7 @@ var userAge = parseInt(prompt("Quanti anni hai?"));
 //arrotondamento tragitto per difetto primo decimale
 userNumKm = Math.floor(userNumKm * 10) / 10;
 
-var baseRoutePrice = userNumKm * ticketPrice;
+baseRoutePrice = userNumKm * ticketPrice;
 
 // stabilire sconto in base all età,
 // minorenni 20% , over 65 anni 40%
@@ -40,10 +40,11 @@ if (userAge < 18 ) {
 
 //visualizzazione scritta eventuale sconto applicato
 discountVal = document.getElementById('discount-value');
+userDiscountStr = "Hai diritto ad uno sconto del: ";
 if (youngUser === true) {
-  discountVal.innerHTML = "Hai diritto ad uno sconto del: " + youngDiscount + "%";
+  discountVal.innerHTML = userDiscountStr + youngDiscount + "%";
 } else if (seniorUser === true) {
-  discountVal.innerHTML = "Hai diritto ad uno sconto del: " + seniorDiscount + "%";
+  discountVal.innerHTML = userDiscountStr + seniorDiscount + "%";
 } else {
   discountVal.innerHTML = "Non hai diritto ad alcuno sconto";
 }
