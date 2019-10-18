@@ -37,13 +37,15 @@ if (userAge < 18 ) {
   finalRoutePrice = baseRoutePrice;
 }
 
+
 //visualizzazione scritta eventuale sconto applicato
+discountVal = document.getElementById('discount-value');
 if (youngUser === true) {
-  document.getElementById('discount-value').innerHTML = "Hai diritto ad uno sconto del: " + youngDiscount + "%";
+  discountVal.innerHTML = "Hai diritto ad uno sconto del: " + youngDiscount + "%";
 } else if (seniorUser === true) {
-  document.getElementById('discount-value').innerHTML = "Hai diritto ad uno sconto del: " + seniorDiscount + "%";
+  discountVal.innerHTML = "Hai diritto ad uno sconto del: " + seniorDiscount + "%";
 } else {
-  document.getElementById('discount-value').innerHTML = "Non hai diritto ad alcuno sconto";
+  discountVal.innerHTML = "Non hai diritto ad alcuno sconto";
 }
 
 //visualizzazione prezzo finale sulla pagina
