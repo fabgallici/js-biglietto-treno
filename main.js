@@ -20,13 +20,22 @@ var finalRoutePrice, baseRoutePrice, discountVal, youngUser, seniorUser;
 var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
 var userAge = parseInt(prompt("Quanti anni hai?"));
 
+//Check User Data
+if (typeof userNumKm == 'number') {
+  console.log("correct data");
+} else {
+  console.log("errore");
+}
+// if (userNumKm === Number.Nan) {
+//   alert('invalid data');
+//   console.log("errore");
+// }
+
 //arrotondamento tragitto per difetto primo decimale
 userNumKm = Math.floor(userNumKm * 10) / 10;
-
-baseRoutePrice = userNumKm * ticketPrice;
-
 // stabilire sconto in base all età,
 // minorenni 20% , over 65 anni 40%
+baseRoutePrice = userNumKm * ticketPrice;
 if (userAge < 18 ) {
   finalRoutePrice = (baseRoutePrice / 100) * (100 - youngDiscount);
   youngUser = true;
