@@ -13,8 +13,8 @@
 var ticketPrice = 0.21;
 var youngDiscount = 20;
 var seniorDiscount = 40;
-var finalRoutePrice, baseRoutePrice, discountVal, youngUser, seniorUser;
-
+var  baseRoutePrice, discountVal, youngUser, seniorUser;
+var finalRoutePrice = 0;
 
 //Richieste numero chilometri ed età utente, accetta anche num km con la virgola
 // var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
@@ -23,42 +23,25 @@ var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
 var userAge = parseInt(prompt("Quanti anni hai?"));
 
 //Check User Data
-// if (isNaN(userNumKm)) {
-//    console.log("errore");
-// } else {
-//   console.log("correct data");
-// }
-if (userNumKm === Number.NaN) {
-  console.log("errore");
+if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0) {
+   alert("Dati inseriti non validi, ripetere la procedura");
+   userNumKm = '\"Dato Errato\" ';
 } else {
-  console.log("correct data");
-}
-// if (typeof userNumKm == 'number') {
-//   console.log("correct data");
-// } else {
-//   console.log("errore");
-// }
-// if (userNumKm === ) {
-//   console.log("errore");
-// } else {
-//   console.log('funziona');
-// }
+  //arrotondamento tragitto per difetto primo decimale
+  userNumKm = Math.floor(userNumKm * 10) / 10;
+  // stabilire sconto in base all età, minorenni 20% , over 65 anni 40%
+  baseRoutePrice = userNumKm * ticketPrice;
+  if (userAge < 18 ) {
+    finalRoutePrice = (baseRoutePrice / 100) * (100 - youngDiscount);
+    youngUser = true;
+  } else if (userAge > 65) {
+    finalRoutePrice = (baseRoutePrice / 100) * (100 - seniorDiscount);
+    seniorUser = true;
+  } else  {
+    finalRoutePrice = baseRoutePrice;
+  }
 
-//arrotondamento tragitto per difetto primo decimale
-userNumKm = Math.floor(userNumKm * 10) / 10;
-// stabilire sconto in base all età,
-// minorenni 20% , over 65 anni 40%
-baseRoutePrice = userNumKm * ticketPrice;
-if (userAge < 18 ) {
-  finalRoutePrice = (baseRoutePrice / 100) * (100 - youngDiscount);
-  youngUser = true;
-} else if (userAge > 65) {
-  finalRoutePrice = (baseRoutePrice / 100) * (100 - seniorDiscount);
-  seniorUser = true;
-} else  {
-  finalRoutePrice = baseRoutePrice;
 }
-
 
 //visualizzazione scritta eventuale sconto applicato
 discountVal = document.getElementById('discount-value');
