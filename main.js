@@ -13,21 +13,18 @@
 var ticketPrice = 0.21;
 var youngDiscount = 20;
 var seniorDiscount = 40;
-var  baseRoutePrice, discountVal, youngUser, seniorUser, ticketNumRnd, dateNow, ticketDate, ticketTime;
+var  baseRoutePrice, discountVal, youngUser, seniorUser, ticketNumRnd, dateNow, ticketDate, ticketTime, errorData;
 var finalRoutePrice = 0;
 
 //Richieste numero chilometri ed età utente, accetta anche num km con la virgola
-// var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
-// var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
-//
-// var userAge = parseInt(prompt("Quanti anni hai?"));
-var userNumKm = 1;
-var userAge = 1;
+var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
+var userAge = parseInt(prompt("Quanti anni hai?"));
+
 //Check User Data
 if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || userNumKm == "") {
-   alert("Dati inseriti mancanti o non validi, ripetere la procedura");
-   userNumKm = '\"Dato Errato\" ';
-   document.getElementById('error-btn').style.display = "block";
+  errorData = true;
+  userNumKm = '\"Dato Errato\" ';
+  document.getElementById('error-btn').style.display = "block";
 } else {
   //arrotondamento tragitto per difetto primo decimale
   userNumKm = Math.floor(userNumKm * 10) / 10;
@@ -53,7 +50,12 @@ if (youngUser === true) {
 } else if (seniorUser === true) {
   discountVal.innerHTML = userDiscountStr + seniorDiscount + "%";
 } else {
-  discountVal.innerHTML = "Non hai diritto ad alcuno sconto";
+  if (errorData === true) {
+    discountVal.innerHTML = "Dati inseriti mancanti o non validi, ripetere la procedura";
+    discountVal.style.color = "red";
+  } else {
+    discountVal.innerHTML = "Non hai diritto ad alcuno sconto";
+  }
 }
 
 //visualizzazione prezzo finale sulla pagina
