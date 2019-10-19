@@ -21,7 +21,7 @@ var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
 var userAge = parseInt(prompt("Quanti anni hai?"));
 
 //Check User Data
-if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || userNumKm == "") {
+if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || userNumKm == "" || userAge == "") {
   errorData = true;
   document.getElementById('price-title').style.display = "none";
   document.getElementById('route-price').style.display = "none";
