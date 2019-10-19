@@ -27,6 +27,7 @@ var userAge = 1;
 if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || userNumKm == "") {
    alert("Dati inseriti mancanti o non validi, ripetere la procedura");
    userNumKm = '\"Dato Errato\" ';
+   document.getElementById('error-btn').style.display = "block";
 } else {
   //arrotondamento tragitto per difetto primo decimale
   userNumKm = Math.floor(userNumKm * 10) / 10;
@@ -41,7 +42,7 @@ if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || user
   } else  {
     finalRoutePrice = baseRoutePrice;
   }
-
+  document.getElementById('print-btn').style.display = "block";
 }
 
 //visualizzazione scritta eventuale sconto applicato

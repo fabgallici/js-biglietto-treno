@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  text-align: center;
+}
 .page-wrapper  {
   width: 780px;
   display: flex;
@@ -60,4 +63,9 @@ footer {
   justify-content: center;
   align-items: center;
   border: 1px solid yellow;
+}
+
+#print-btn,
+#error-btn {
+  display: none;
 }
