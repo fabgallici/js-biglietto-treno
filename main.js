@@ -18,10 +18,11 @@ var finalRoutePrice = 0;
 
 //Richieste numero chilometri ed età utente, accetta anche num km con la virgola
 // var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
-var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
-
-var userAge = parseInt(prompt("Quanti anni hai?"));
-
+// var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
+//
+// var userAge = parseInt(prompt("Quanti anni hai?"));
+var userNumKm = 1;
+var userAge = 1;
 //Check User Data
 if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || userNumKm == "") {
    alert("Dati inseriti mancanti o non validi, ripetere la procedura");
