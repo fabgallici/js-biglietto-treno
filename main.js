@@ -13,7 +13,7 @@
 var ticketPrice = 0.21;
 var youngDiscount = 20;
 var seniorDiscount = 40;
-var  baseRoutePrice, discountVal, youngUser, seniorUser;
+var  baseRoutePrice, discountVal, youngUser, seniorUser, ticketNumRnd, dateNow, ticketDate, ticketTime;
 var finalRoutePrice = 0;
 
 //Richieste numero chilometri ed età utente, accetta anche num km con la virgola
@@ -59,3 +59,18 @@ if (youngUser === true) {
 //visualizzazione prezzo finale sulla pagina
 document.getElementById('price-title').innerHTML = "Il prezzo del biglietto per il tragitto di " + userNumKm + "km è di:";
 document.getElementById('route-price').innerHTML = finalRoutePrice.toFixed(2) + "€";
+
+//Scritta numero random ticket e data
+ticketNumRnd = Math.floor(Math.random() * 999) + 1;
+dateNow = new Date();
+
+//Aggiunge zeri al numero ticket sotto soglie decimali
+if (ticketNumRnd < 100) {
+  ticketNumRnd = "0" + ticketNumRnd;
+} else if (ticketNumRnd < 10) {
+  ticketNumRnd = "00" + ticketNumRnd;
+}
+//visualizza numero ticket e data
+ticketDate = dateNow.getDate() + " / " + (dateNow.getMonth() + 1) + " / " + dateNow.getFullYear();
+ticketTime = dateNow.getHours() + ": " + dateNow.getMinutes();
+document.getElementById('aside-right').innerHTML = "Ticket n° " + ticketNumRnd + " del " + ticketDate + " alle ore " + ticketTime;
