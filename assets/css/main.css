@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.page-wrapper  {
+  width: 780px;
+  display: flex;
+  margin: auto;
+  height: 50vh;
+  position: relative;
+  border: 2px solid #000;
+  border-radius: 30px;
+  padding: 20px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid;
+}
+#aside-right {
+  flex-basis: 10%;
+}
+.rotate {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%;);
+  transform: rotate(-90deg);
+
+  /* Legacy vendor prefixes that you probably don't need... */
+
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+
+  /* IE */
+  -ms-transform: rotate(-90deg);
+
+  /* Opera */
+  -o-transform: rotate(-90deg);
+
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}

@@ -23,8 +23,8 @@ var userNumKm = parseFloat(prompt("Quanti km è lungo il viaggio?"));
 var userAge = parseInt(prompt("Quanti anni hai?"));
 
 //Check User Data
-if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0) {
-   alert("Dati inseriti non validi, ripetere la procedura");
+if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || userNumKm == "") {
+   alert("Dati inseriti mancanti o non validi, ripetere la procedura");
    userNumKm = '\"Dato Errato\" ';
 } else {
   //arrotondamento tragitto per difetto primo decimale
