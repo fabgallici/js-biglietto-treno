@@ -23,7 +23,8 @@ var userAge = parseInt(prompt("Quanti anni hai?"));
 //Check User Data
 if (isNaN(userNumKm) || userNumKm <= 0 || isNaN(userAge) || userAge <= 0 || userNumKm == "") {
   errorData = true;
-  userNumKm = '\"Dato Errato\" ';
+  document.getElementById('price-title').style.display = "none";
+  document.getElementById('route-price').style.display = "none";
   document.getElementById('error-btn').style.display = "block";
 } else {
   //arrotondamento tragitto per difetto primo decimale
