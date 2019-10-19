@@ -24,12 +24,9 @@ main {
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  border: 1px solid;
 }
 #aside-right {
   flex-basis: 10%;
-  /* height: 100%;
-  width: 100%; */
 
 }
 .rotate {
@@ -62,7 +59,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid yellow;
 }
 
 #print-btn,
